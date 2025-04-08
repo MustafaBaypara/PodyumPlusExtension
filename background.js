@@ -3,7 +3,10 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 
+
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  chrome.storage.local.get('extensionEnabled', (result) => {
     if (message.action === "switchToPodyum") {
       chrome.tabs.query({}, function(tabs) {
         for (let tab of tabs) {
@@ -12,8 +15,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             break;
           }
         }
-      });
+      })
     }
   });
+});
   
   
