@@ -9,10 +9,10 @@ window.addEventListener('afterprint', () => {
           console.log("PodyumPlus Barkod Check!");
     
           const barcodeImg = document.querySelector('img.barcode');
+          const base64Imgs = document.querySelectorAll('img[src^="data:image/jpeg;base64"]');
+          if (barcodeImg || base64Imgs.length === 1) {
     
-          if (barcodeImg) {
-    
-          console.log('[✓] <img class="barcode"> bulundu:');
+          console.log('[✓] barcode bulundu:');
           console.log(barcodeImg);
           setTimeout(() => {
             chrome.runtime.sendMessage({ action: "switchToPodyum" });
@@ -23,7 +23,7 @@ window.addEventListener('afterprint', () => {
             }, 3500); 
             
           } else {
-          console.warn('[!] <img class="barcode"> bulunamadı.');
+          console.warn('[!] barcode bulunamadı.');
           }
         }
 	});

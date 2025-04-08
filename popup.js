@@ -42,5 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		switchText.textContent = 'Kapalı';
 	  }
 	}
+	  
   });
   
