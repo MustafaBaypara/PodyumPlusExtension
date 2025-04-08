@@ -2,6 +2,7 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log("PodyumPlus Eklentisi Yüklendi!");
 });
 
+// background.js
 
 
 
@@ -16,6 +17,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           }
         }
       })
+    }
+    else if (message.action === 'sendURL') {
+      console.log('URL alındı background:', message.url);
     }
   });
 });
