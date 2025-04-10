@@ -15,11 +15,11 @@ window.addEventListener('afterprint', () => {
         
         setTimeout(() => {
           chrome.runtime.sendMessage({ action: "switchToPodyum" });
-        }, 11750); 
+        }, 750); 
         
         setTimeout(() => {
           window.close();
-        }, 13500); 
+        }, 3500); 
         
         chrome.storage.local.get('barcodeList', (data) => {
           let barcodeList = data.barcodeList || [];
